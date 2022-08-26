@@ -6,7 +6,12 @@ library(SixSigma)
 library(readxl)
 library(grid)
 library(ggplot2)
-FMax <- read_xlsx(file.choose(), col_names =FALSE, range = "C14:C68")
+
+
+file_user <- file.choose()
+file_user
+
+FMax <- read_xlsx(file_user, col_names =FALSE, range = "C14:C68")
 FMax= as.matrix(FMax)
 
 
@@ -40,4 +45,3 @@ twopack(FMax,
         Target = target,
         alpha = 0.5,
         f.sub = "Process capability")
-
