@@ -36,10 +36,3 @@ twopack(FMax,
         Target = 400,
         alpha = 0.5,
         f.sub = "Process capability")
-
-
-#hist(FMax, breaks=14)
-
-
-
-#hist(FMax, breaks=14)
