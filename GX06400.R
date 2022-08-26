@@ -5,6 +5,7 @@
 library(SixSigma)
 library(readxl)
 library(grid)
+library(ggplot2)
 FMax <- read_xlsx(file.choose(), col_names =FALSE, range = "C14:C68")
 FMax= as.matrix(FMax)
 
@@ -35,6 +36,10 @@ twopack(FMax,
         Target = 400,
         alpha = 0.5,
         f.sub = "Process capability")
+
+
+#hist(FMax, breaks=14)
+
 
 
 #hist(FMax, breaks=14)
