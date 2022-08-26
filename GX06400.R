@@ -4,7 +4,7 @@
 # Import packages
 library(SixSigma)
 library(readxl)
-library(units)
+library(grid)
 FMax <- read_xlsx(file.choose(), col_names =FALSE, range = "C14:C68")
 FMax= as.matrix(FMax)
 
