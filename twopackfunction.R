@@ -1,9 +1,9 @@
 
 
-twopack <- function (xST, xLT = NA, LSL = NA, USL = NA, Target = NA, alpha = 0.05, 
-          f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
-          f.sub = "", f.colours = c("#4682B4", "#d1d1e0", 
-                                    "#000000", "#00C800", "#FF0000")) 
+twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05, 
+                     f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
+                     f.sub = "", f.colours = c("#4682B4", "#d1d1e0", 
+                                               "#000000", "#00C800", "#FF0000")) 
 {
   if (is.na(Target)) {
     stop("Target is needed")
@@ -48,7 +48,7 @@ twopack <- function (xST, xLT = NA, LSL = NA, USL = NA, Target = NA, alpha = 0.0
     f.colours <- c(f.colours, default[(length(f.colours) + 
                                          1):5])
   }
-prepCanvas(f.main, f.sub)
+  prepCanvas(f.main, f.sub)
   vp.plots <- grid::viewport(name = "plots", layout = grid::grid.layout(2, 
                                                                         2, c(0.6, 0.4), c(0.6, 0.4)))
   grid::pushViewport(vp.plots)
@@ -71,7 +71,7 @@ prepCanvas(f.main, f.sub)
   binwST <- diff(range(xST))/(sqrt(nST)*1.4) 
   
   
- ggdata <- reshape2::melt(xST)
+  ggdata <- reshape2::melt(xST)
   qqp <- ggplot(ggdata, aes(x = value))
   hist <- qqp + geom_histogram(aes(y = ..density..), binwidth = binwST, 
                                fill = f.colours[1], stat = "bin")
