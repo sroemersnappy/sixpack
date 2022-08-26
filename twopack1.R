@@ -11,28 +11,31 @@ FMax= as.matrix(FMax)
 
 
 
-# Type in measurements' values
+# Type in USL, LSL and Target values
 
+LSL <- 370
+USL <- 430
+Target <- 400
 
 # Get the Z (sigma score) of the process
-ss.ca.z(FMax, LSL = 370, USL = 430)
+ss.ca.z(FMax, LSL, USL)
 
 # Get the Cp indices of the process
-ss.ca.cp(FMax, LSL = 370, USL = 430)
+ss.ca.cp(FMax, LSL, USL)
 
 # Get the Cp indices confidence intervals
-ss.ca.cp(FMax, LSL = 370, USL = 430, ci = TRUE)
+ss.ca.cp(FMax, LSL, USL, ci = TRUE)
 
 # Get the Cpk indices of the process
-ss.ca.cpk(FMax, LSL = 370, USL = 430)
+ss.ca.cpk(FMax, LSL, USL)
 
 # Get the Cpk indices confidence intervals
-ss.ca.cpk(FMax, LSL = 370, USL = 430, ci = TRUE)
+ss.ca.cpk(FMax, LSL, USL, ci = TRUE)
 
 # Perform process capability analysis
 twopack(FMax,
-        LSL = 370,
-        USL = 430,
-        Target = 400,
+        LSL,
+        USL,
+        Target,
         alpha = 0.5,
         f.sub = "Process capability")
