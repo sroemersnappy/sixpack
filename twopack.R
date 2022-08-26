@@ -1,3 +1,5 @@
+
+
 twopack <- function (xST, xLT = NA, LSL = NA, USL = NA, Target = NA, alpha = 0.05, 
           f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
           f.sub = "", f.colours = c("#4682B4", "#d1d1e0", 
@@ -55,12 +57,39 @@ prepCanvas(f.main, f.sub)
   grid::pushViewport(vp.hist)
   grid::grid.text("Histogram & Density", y = 1, just = c("center", 
                                                          "top"))
-  binwST <- diff(range(xST))/sqrt(nST)
-  ggdata <- reshape2::melt(xST)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  binwST <- diff(range(xST))/(sqrt(nST)*1.4) 
+  
+  
+ ggdata <- reshape2::melt(xST)
   qqp <- ggplot(ggdata, aes(x = value))
   hist <- qqp + geom_histogram(aes(y = ..density..), binwidth = binwST, 
                                fill = f.colours[1], stat = "bin")
   xST_density <- density(xST, bw = binwST)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   if (!is.na(LSL)) {
     hist <- hist + annotate(geom = "text", x = LSL - 
                               abs(max(xST_density$x) - min(xST_density$x)) * 0.02, 
@@ -95,6 +124,11 @@ prepCanvas(f.main, f.sub)
                                                                             position = "identity", size = 1, colour = f.colours[2]) + 
     stat_function(fun = dnorm, args = with(ggdata, c(mean(value), 
                                                      sd(value))), linetype = 2, size = 1, colour = f.colours[2])
+  
+  
+  
+  
+  
   if (is.numeric(xLT)) {
     binwLT <- diff(range(xLT))/sqrt(nLT)
     ggdataLT <- reshape2::melt(xLT)
@@ -104,6 +138,9 @@ prepCanvas(f.main, f.sub)
                                              c(mean = mean(value), sd = sd(value))), linetype = 2, 
                     colour = f.colours[3])
   }
+  
+  
+  
   print(hist, newpage = FALSE)
   grid::popViewport()
   vp.norm <- grid::viewport(name = "normal", layout.pos.row = 2, 
