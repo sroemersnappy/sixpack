@@ -8,13 +8,24 @@ library(grid)
 library(ggplot2)
 
 
+#choose the file
 file_user <- file.choose()
-file_user
 
+#get the file path so that the PN and WO# can be extracted from it using basename
+extract=basename(file_user)
+
+
+my_string_split <- scan(text = extract, what = "")  # Apply scan function
+
+#concatenate substring one (part number) and substring two (WO#)
+PN_WO <- paste(my_string_split[1], my_string_split[2])
+
+#read Fmax data only from the excel file
 FMax <- read_xlsx(file_user, col_names =FALSE, range = "C14:C68")
 FMax= as.matrix(FMax)
 
-
+#import LSL,USL, and target values from excel file
+#targetdata <-read_excel(P:\\Quality\\Savannah\\PN trip data\\PN trip data.xlsx)
 
 # Type in USL, LSL and Target values
 
