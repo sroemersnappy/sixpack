@@ -14,7 +14,6 @@ file_user <- file.choose()
 #get the file path so that the PN and WO# can be extracted from it using basename
 extract=basename(file_user)
 
-
 my_string_split <- scan(text = extract, what = "")  # Apply scan function
 
 #concatenate substring one (part number) and substring two (WO#)
@@ -31,9 +30,9 @@ index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
-lsl <- PN_data_xT_deduped[[index_of_PN,2]]
-target <- PN_data_xT_deduped[[index_of_PN,3]]
-usl <-PN_data_xT_deduped[[index_of_PN,4]]
+lsl <- PN_data_xT_deduped[[index_of_PN,4]]
+target <- PN_data_xT_deduped[[index_of_PN,2]]
+usl <-PN_data_xT_deduped[[index_of_PN,5]]
 
 
 # Get the Z (sigma score) of the process
