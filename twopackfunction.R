@@ -325,8 +325,8 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
                                                           "npc") - unit(1.5, "lines"), just = c("right", 
                                                                                                 "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(sprintf("%.4f", cpST), y = unit(0.95, 
-                                                  "npc") - unit(1.5, "lines"), just = c("left", 
-                                                                                        "top"), gp = grid::gpar(cex = 0.8))
+                                                 "npc") - unit(1.5, "lines"), just = c("left", 
+                                                                                       "top"), gp = grid::gpar(cex = 0.8))
   #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
                                          #            "npc") - unit(3, "lines"), just = c("right", 
                                          #                                                "top"), gp = grid::gpar(cex = 0.7))
@@ -334,13 +334,13 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
       #                                     cpiST[1]), sep = ""), ",", sprintf("%.1f", 
       #                                                                        cpiST[2]), "]", sep = ""), y = unit(0.95, 
       #                                                                                                            "npc") - unit(3, "lines"), just = c("left", 
-                                                                                                                                                      "top"), gp = grid::gpar(cex = 0.7))
+      #                                                                                                                                                "top"), gp = grid::gpar(cex = 0.7))
   grid::grid.text(expression(bold(C[pk] * ": ")), y = unit(0.95, 
                                                            "npc") - unit(4.5, "lines"), just = c("right", 
                                                                                                  "top"), gp = grid::gpar(cex = 0.8))
- # grid::grid.text(sprintf("%.4f", cpkST), y = unit(0.95, 
-  #                                                 "npc") - unit(4.5, "lines"), just = c("left", 
-  #                                                                                       "top"), gp = grid::gpar(cex = 0.8))
+  grid::grid.text(sprintf("%.4f", cpkST), y = unit(0.95, 
+                                                   "npc") - unit(4.5, "lines"), just = c("left", 
+                                                                                         "top"), gp = grid::gpar(cex = 0.8))
   #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
                                #                      "npc") - unit(6.5, "lines"), just = c("right", 
                                #                                                            "top"), gp = grid::gpar(cex = 0.7))
@@ -348,7 +348,7 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   #                                         cpkiST[1]), sep = ""), ",", sprintf("%.1f", 
    #                                                                            cpkiST[2]), "]", sep = ""), y = unit(0.95, 
    #                                                                                                                 "npc") - unit(6.5, "lines"), just = c("left", 
-                                                                                                                                                          "top"), gp = grid::gpar(cex = 0.7))
+    #                                                                                                                                                      "top"), gp = grid::gpar(cex = 0.7))
   grid::popViewport()
   vpLTi <- grid::viewport(layout.pos.col = 2)
   grid::pushViewport(vpLTi)
