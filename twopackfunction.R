@@ -169,14 +169,14 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   #}
   #grid::grid.text("Shapiro-Wilk Test", y = 0.9, just = c("center", 
        #                                                  "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(paste("p-value: ", format(ss.ts$p.value, 
-                                            digits = 4)), gp = grid::gpar(cex = 0.8), y = 0.8)
-  grid::grid.text("Lilliefors (K-S) Test", gp = grid::gpar(cex = 0.8))
-  grid::grid.text(paste("p-value: ", format(ss.tl$p.value, 
-                                            digits = 4)), gp = grid::gpar(cex = 0.8), y = 0.4)
+  #grid::grid.text(paste("p-value: ", format(ss.ts$p.value, 
+    #                                        digits = 4)), gp = grid::gpar(cex = 0.8), y = 0.8)
+  #grid::grid.text("Lilliefors (K-S) Test", gp = grid::gpar(cex = 0.8))
+  #grid::grid.text(paste("p-value: ", format(ss.tl$p.value, 
+                  #                          digits = 4)), gp = grid::gpar(cex = 0.8), y = 0.4)
   grid::popViewport()
-  grid::grid.text("Normality accepted when p-value > 0.05", 
-                  y = 0.02, just = c("center", "bottom"), gp = grid::gpar(cex = 0.8))
+ # grid::grid.text("Normality accepted when p-value > 0.05", 
+             #     y = 0.02, just = c("center", "bottom"), gp = grid::gpar(cex = 0.8))
   grid::popViewport()
   vpNumbers <- grid::viewport(name = "numbers", layout.pos.row = c(1, 
                                                                    2), layout.pos.col = 2, layout = grid::grid.layout(4, 
