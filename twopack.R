@@ -28,6 +28,7 @@ PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT de
                         
 index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 
+
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
 lsl <- PN_data_xT_deduped[[index_of_PN,4]]
