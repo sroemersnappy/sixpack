@@ -1,7 +1,6 @@
 
-
 twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05, 
-                     f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
+                     f.na.rm = TRUE, f.main = PN_WO, 
                      f.sub = "", f.colours = c("#4682B4", "#d1d1e0", 
                                                "#000000", "#00C800", "#FF0000")) 
 {
