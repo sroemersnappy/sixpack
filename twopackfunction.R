@@ -141,25 +141,29 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   
   
   print(hist, newpage = FALSE)
-  grid::popViewport()
-  vp.norm <- grid::viewport(name = "normal", layout.pos.row = 2, 
-                            layout.pos.col = 1, layout = grid::grid.layout(2, 2, 
-                                                                           c(0.6, 0.4), c(0.1, 0.9)))
+  
+  
+   grid::popViewport()
+   vp.norm <- grid::viewport(name = "normal", layout.pos.row = 2, 
+                         layout.pos.col = 1, layout = grid::grid.layout(2, 2, 
+                                                                      c(0.6, 0.4), c(0.1, 0.9)))
   grid::pushViewport(vp.norm)
   grid::grid.text("Check Normality", y = 1, just = c("center", 
-                                                     "top"))
+                                                                                                  "top"))
   vp.qq <- grid::viewport(name = "qqp", layout.pos.row = 2, 
-                          layout.pos.col = 1, height = unit(0.5, "npc"))
+                                                layout.pos.col = 1, height = unit(0.5, "npc"))
   grid::pushViewport(vp.qq)
   qqp <- qplot(sample = xST) + xlab(NULL) + ylab(NULL) + theme(axis.text.x = element_blank(), 
-                                                               axis.text.y = element_blank())
-  print(qqp, newpage = FALSE)
+                                                             axis.text.y = element_blank())
+  #print(qqp, newpage = FALSE)
   grid::popViewport()
   vp.testn <- grid::viewport(name = "testn", layout.pos.row = 2, 
                              layout.pos.col = 2)
   grid::pushViewport(vp.testn)
   ss.ts <- shapiro.test(xST)
   ss.tl <- nortest::lillie.test(xST)
+  
+  
   if (min(ss.ts$p.value, ss.tl$pvalue) < alpha) {
     warning("Normality test/s failed")
   }
