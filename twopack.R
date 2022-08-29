@@ -20,12 +20,13 @@ my_string_split <- scan(text = extract, what = "")  # Apply scan function
 #concatenate substring one (part number) and substring two (WO#)
 PN_WO <- paste(my_string_split[1], my_string_split[2])
 
-#read Fmax data only from the excel file
+#read Fmax data only from the excel file that was chosen
 FMax <- read_xlsx(file_user, col_names =FALSE, range = "C14:C68")
 FMax= as.matrix(FMax)
 
-#import LSL,USL, and target values from excel file
-#targetdata <-read_excel(P:\\Quality\\Savannah\\PN trip data\\PN trip data.xlsx)
+#import LSL,USL, and target values from second excel file - downloaded from xT
+PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT deduped.xlsx")
+which(PN_data_xT_deduped == my_string_split[1])
 
 # Type in USL, LSL and Target values
 
