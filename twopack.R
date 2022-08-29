@@ -26,13 +26,13 @@ FMax= as.matrix(FMax)
 
 #import LSL,USL, and target values from second excel file - downloaded from xT
 PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT deduped.xlsx")
-which(PN_data_xT_deduped == my_string_split[1])
+index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 
-# Type in USL, LSL and Target values
+#  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
-lsl <- 370
-usl <- 430
-target <-400
+lsl <- PN_data_xT_deduped[index_of_PN,2]
+target <- PN_data_xT_deduped[index_of_PN,3]
+usl <-PN_data_xT_deduped[index_of_PN,4]
 
 
 # Get the Z (sigma score) of the process
