@@ -1,5 +1,5 @@
 prepCanvas <- function(main = "Six Sigma graph", sub = "My Six Sigma Project",
-         ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
+                       ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
   #Plot
   grid::grid.newpage()
   grid::grid.rect(gp = grid::gpar(col = ss.col[2], 
