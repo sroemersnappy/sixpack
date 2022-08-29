@@ -167,8 +167,8 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   #if (min(ss.ts$p.value, ss.tl$pvalue) < alpha) {
    # warning("Normality test/s failed")
   #}
-  grid::grid.text("Shapiro-Wilk Test", y = 0.9, just = c("center", 
-                                                         "top"), gp = grid::gpar(cex = 0.8))
+  #grid::grid.text("Shapiro-Wilk Test", y = 0.9, just = c("center", 
+       #                                                  "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(paste("p-value: ", format(ss.ts$p.value, 
                                             digits = 4)), gp = grid::gpar(cex = 0.8), y = 0.8)
   grid::grid.text("Lilliefors (K-S) Test", gp = grid::gpar(cex = 0.8))
