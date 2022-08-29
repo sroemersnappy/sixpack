@@ -364,9 +364,9 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
                                                     "npc") - unit(1.5, "lines"), just = c("left", 
                                                                                           "top"), gp = grid::gpar(cex = 0.8))
   }
-  grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
-                                                     "npc") - unit(3, "lines"), just = c("right", 
-                                                                                         "top"), gp = grid::gpar(cex = 0.7))
+  #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
+                      #                               "npc") - unit(3, "lines"), just = c("right", 
+                      #                                                                   "top"), gp = grid::gpar(cex = 0.7))
   if (!is.na(cpiLT[1])) {
     grid::grid.text(paste("[", paste(sprintf("%.1f", 
                                              cpiLT[1]), sep = ""), ",", sprintf("%.1f", 
