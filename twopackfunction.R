@@ -1,4 +1,3 @@
-
 twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05, 
                      f.na.rm = TRUE, f.main = PN_WO, 
                      f.sub = "", f.colours = c("#4682B4", "#d1d1e0", 
@@ -236,19 +235,23 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   grid::pushViewport(vpProcess)
   grid::grid.lines(x = c(0, 1), y = c(1, 1), gp = grid::gpar(col = "#BBBBBB", 
                                                              lwd = 3))
+  
+  
+  
+  
   grid::grid.text(expression(bold("Process")), y = 0.95, 
                   just = c("center", "top"))
   vpSTp <- grid::viewport(layout.pos.col = 1)
   grid::pushViewport(vpSTp)
-  grid::grid.text("Short Term", x = 0.05, y = 0.95, just = c("left", 
-                                                             "top"), gp = grid::gpar(cex = 0.8))
+  #grid::grid.text("Short Term", x = 0.05, y = 0.95, just = c("center", 
+                                                 #            "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(expression(bold("Mean: ")), y = unit(0.95, 
                                                        "npc") - unit(1.5, "lines"), just = c("right", 
                                                                                              "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(sprintf("%.4f", mST), y = unit(0.95, 
                                                 "npc") - unit(1.5, "lines"), just = c("left", 
                                                                                     "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(expression(bold("SD: ")), y = unit(0.95, 
+  grid::grid.text(expression(bold("SD Overall: ")), y = unit(0.95, 
                                                    "npc") - unit(2.5, "lines"), just = c("right", 
                                                                                          "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(sprintf("%.4f", sST), y = unit(0.95, 
