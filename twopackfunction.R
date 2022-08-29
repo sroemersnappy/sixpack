@@ -317,6 +317,8 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
                   just = c("center", "top"))
   vpSTi <- grid::viewport(layout.pos.col = 1)
   grid::pushViewport(vpSTi)
+  
+  
   grid::grid.text("Short Term", x = 0.05, y = 0.95, just = c("left", 
                                                              "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(expression(bold(C[p] * ": ")), y = unit(0.95, 
@@ -325,31 +327,33 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   grid::grid.text(sprintf("%.4f", cpST), y = unit(0.95, 
                                                   "npc") - unit(1.5, "lines"), just = c("left", 
                                                                                         "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
-                                                     "npc") - unit(3, "lines"), just = c("right", 
-                                                                                         "top"), gp = grid::gpar(cex = 0.7))
-  grid::grid.text(paste("[", paste(sprintf("%.1f", 
-                                           cpiST[1]), sep = ""), ",", sprintf("%.1f", 
-                                                                              cpiST[2]), "]", sep = ""), y = unit(0.95, 
-                                                                                                                  "npc") - unit(3, "lines"), just = c("left", 
+  #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
+                                         #            "npc") - unit(3, "lines"), just = c("right", 
+                                         #                                                "top"), gp = grid::gpar(cex = 0.7))
+  #grid::grid.text(paste("[", paste(sprintf("%.1f", 
+      #                                     cpiST[1]), sep = ""), ",", sprintf("%.1f", 
+      #                                                                        cpiST[2]), "]", sep = ""), y = unit(0.95, 
+      #                                                                                                            "npc") - unit(3, "lines"), just = c("left", 
                                                                                                                                                       "top"), gp = grid::gpar(cex = 0.7))
   grid::grid.text(expression(bold(C[pk] * ": ")), y = unit(0.95, 
                                                            "npc") - unit(4.5, "lines"), just = c("right", 
                                                                                                  "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(sprintf("%.4f", cpkST), y = unit(0.95, 
-                                                   "npc") - unit(4.5, "lines"), just = c("left", 
-                                                                                         "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
-                                                     "npc") - unit(6.5, "lines"), just = c("right", 
-                                                                                           "top"), gp = grid::gpar(cex = 0.7))
-  grid::grid.text(paste("[", paste(sprintf("%.1f", 
-                                           cpkiST[1]), sep = ""), ",", sprintf("%.1f", 
-                                                                               cpkiST[2]), "]", sep = ""), y = unit(0.95, 
-                                                                                                                    "npc") - unit(6.5, "lines"), just = c("left", 
+ # grid::grid.text(sprintf("%.4f", cpkST), y = unit(0.95, 
+  #                                                 "npc") - unit(4.5, "lines"), just = c("left", 
+  #                                                                                       "top"), gp = grid::gpar(cex = 0.8))
+  #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
+                               #                      "npc") - unit(6.5, "lines"), just = c("right", 
+                               #                                                            "top"), gp = grid::gpar(cex = 0.7))
+ # grid::grid.text(paste("[", paste(sprintf("%.1f", 
+  #                                         cpkiST[1]), sep = ""), ",", sprintf("%.1f", 
+   #                                                                            cpkiST[2]), "]", sep = ""), y = unit(0.95, 
+   #                                                                                                                 "npc") - unit(6.5, "lines"), just = c("left", 
                                                                                                                                                           "top"), gp = grid::gpar(cex = 0.7))
   grid::popViewport()
   vpLTi <- grid::viewport(layout.pos.col = 2)
   grid::pushViewport(vpLTi)
+  
+  
   grid::grid.text("Long Term", x = 0.95, y = 0.95, just = c("right", 
                                                             "top"), gp = grid::gpar(cex = 0.8))
   grid::grid.text(expression(bold(P[p] * ": ")), y = unit(0.95, 
@@ -378,9 +382,9 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
                                                      "npc") - unit(4.5, "lines"), just = c("left", 
                                                                                            "top"), gp = grid::gpar(cex = 0.8))
   }
-  grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
-                                                     "npc") - unit(6.5, "lines"), just = c("right", 
-                                                                                           "top"), gp = grid::gpar(cex = 0.7))
+  #grid::grid.text(expression(bold("CI: ")), y = unit(0.95, 
+                              #                       "npc") - unit(6.5, "lines"), just = c("right", 
+                              #                                                             "top"), gp = grid::gpar(cex = 0.7))
   if (!is.na(cpkiLT[1])) {
     grid::grid.text(paste("[", paste(sprintf("%.1f", 
                                              cpkiLT[1]), sep = ""), ",", sprintf("%.1f", 
