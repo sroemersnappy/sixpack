@@ -270,8 +270,8 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   vpLTp <- grid::viewport(layout.pos.col = 2)
   grid::pushViewport(vpLTp)
   
-  grid::grid.text("Long Term", x = 0.95, y = 0.95, just = c("right", 
-                                                            "top"), gp = grid::gpar(cex = 0.8))
+  #grid::grid.text("Long Term", x = 0.95, y = 0.95, just = c("right", 
+                              #                              "top"), gp = grid::gpar(cex = 0.8))
  # grid::grid.text(expression(bold("Mean: ")), y = unit(0.95, 
                                  #                     "npc") - unit(1.5, "lines"), just = c("right", 
                                  #                                                            "top"), gp = grid::gpar(cex = 0.8))
@@ -291,9 +291,9 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   #grid::grid.text(expression(bold("n: ")), y = unit(0.95, 
                      #                               "npc") - unit(3.5, "lines"), just = c("right", 
                      #                                                                     "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(nLT, y = unit(0.95, "npc") - unit(3.5, 
-                                                    "lines"), just = c("left", "top"), 
-                  gp = grid::gpar(cex = 0.8))
+  #grid::grid.text(nLT, y = unit(0.95, "npc") - unit(3.5, 
+                                #                    "lines"), just = c("left", "top"), 
+                 # gp = grid::gpar(cex = 0.8))
  # grid::grid.text(expression(bold(Z[s] * ": ")), y = unit(0.95, 
                                              #             "npc") - unit(4.5, "lines"), just = c("right", 
                                               #                                                  "top"), gp = grid::gpar(cex = 0.8))
