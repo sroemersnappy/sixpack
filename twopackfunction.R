@@ -299,12 +299,12 @@ twopack <- function (xST, xLT = NA, LSL, USL, Target , alpha = 0.05,
   grid::grid.text(sprintf("%.2f", zLT), y = unit(0.95, 
                                                  "npc") - unit(4.5, "lines"), just = c("left", 
                                                                                        "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(expression(bold("DPMO: ")), y = unit(0.95, 
-                                                       "npc") - unit(5.5, "lines"), just = c("right", 
-                                                                                             "top"), gp = grid::gpar(cex = 0.8))
-  grid::grid.text(round(DPMO, 1), y = unit(0.95, "npc") - 
-                    unit(5.5, "lines"), just = c("left", "top"), 
-                  gp = grid::gpar(cex = 0.8))
+  #grid::grid.text(expression(bold("DPMO: ")), y = unit(0.95, 
+       #                                                "npc") - unit(5.5, "lines"), just = c("right", 
+       #                                                                                      "top"), gp = grid::gpar(cex = 0.8))
+  #grid::grid.text(round(DPMO, 1), y = unit(0.95, "npc") - 
+             #       unit(5.5, "lines"), just = c("left", "top"), 
+             #     gp = grid::gpar(cex = 0.8))
   grid::popViewport()
   grid::popViewport()
   vpIndices <- grid::viewport(name = "ind", layout.pos.row = 4, 
