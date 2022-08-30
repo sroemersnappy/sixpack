@@ -25,7 +25,8 @@ PN_WO <- paste(PN_WO1, my_string_split2[1])
 
 #read Fmax data only from the excel file that was chosen
 FMax <- read_xlsx(file_user, col_names =FALSE, range = "C14:C68")
-FMax= as.matrix(FMax)
+FMax <- na.omit(FMax)
+FMax <- as.matrix(FMax)
 
 #import LSL,USL, and target values from second excel file - downloaded from xT
 PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT deduped.xlsx")
