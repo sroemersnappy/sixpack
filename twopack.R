@@ -7,6 +7,8 @@ library(readxl)
 library(grid)
 library(ggplot2)
 library(stringr)
+source("twopackfunction.R")
+source("prepCanvas.R")
 
 
 #choose the file
@@ -19,8 +21,8 @@ my_string_split <- scan(text = extract, what = "")  # Apply scan function
 my_string_split2 <- scan(text = my_string_split[3], what = "", sep = ".")
 
 #concatenate substring one (part number) and substring two (WO#)
-PN_WO1 <- paste(my_string_split[1], my_string_split[2])
-PN_WO <- paste(PN_WO1, my_string_split2[1])
+PN_WO <- paste(my_string_split[1], my_string_split[2])
+#PN_WO <- paste(PN_WO1, my_string_split2[1])
 
 
 #read Fmax data only from the excel file that was chosen
