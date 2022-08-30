@@ -30,7 +30,7 @@ FMax= as.matrix(FMax)
 #import LSL,USL, and target values from second excel file - downloaded from xT
 PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT deduped.xlsx")
                         
-index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
+
 
 # lookup of PN will fail if the PN includes something like "REV A"
 #Delete all of these occurrences so that only the PN remains
@@ -53,6 +53,7 @@ worev <- unlist(withoutREV1)
 
 PN_data_xT_deduped$PN <- worev
 
+index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
@@ -101,3 +102,4 @@ twopack(FMax,
         Target = target,
         alpha = 0.5,
         f.sub = "Process capability")
+
