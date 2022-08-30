@@ -35,14 +35,24 @@ lsl <- PN_data_xT_deduped[[index_of_PN,4]]
 target <- PN_data_xT_deduped[[index_of_PN,2]]
 usl <-PN_data_xT_deduped[[index_of_PN,5]]
 
+#Used this website to find how minitab calculates Cp and Cpk.
+#Used calculated standard deviation, not within standard deviation
+# https://support.minitab.com/en-us/minitab/20/help-and-how-to/quality-and-process-improvement/capability-analysis/how-to/
+#capability-analysis/normal-capability-analysis/methods-and-formulas/potential-capability/
+
 sigma<-sd(FMax)
 mu <- mean(FMax)
+specdiff=usl-lsl
 #top <- sum((FMax-mu)^2)
 #standard_deviation <- sqrt(top/(length(FMax)-1))
-C_p <- (usl-lsl)/(6*sigma)
+C_p <- (specdiff)/(6*sigma)
 C_pL <- (mu-lsl)/(3*sigma)
 C_pU <- (usl-mu)/(3*sigma)
+C_pK <- min(C_pL,C_pU)
+n_FMax <- length(FMax)-1
 
+
+C_pm <- specdiff/(6*sqrt((sum((FMax-target)^2))/n_FMax))
 
 # Get the Z (sigma score) of the process
 ss.ca.z(FMax, LSL=lsl, USL= usl)
