@@ -6,6 +6,7 @@ library(SixSigma)
 library(readxl)
 library(grid)
 library(ggplot2)
+library(stringr)
 
 
 #choose the file
@@ -38,10 +39,19 @@ index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 withREV1 <- PN_data_xT_deduped[,1]
 withREV <- as.matrix(withREV1)
 
-for (i in 1:length(FMax)) parsesubstring <- scan(text = withREV[i,1], what = "")
+withoutREV <- numeric()  
 
+for (i in 1:length(withREV))
+  {
+  parsesubstring <- scan(text = withREV[i,1], what = "")
+  newstring = parsesubstring[1]
+  withoutREV <- c(withoutREV, newstring)
+   }
 
+withoutREV1 <- split(withoutREV,1)
+worev <- unlist(withoutREV1)
 
+PN_data_xT_deduped$PN <- worev
 
 
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
@@ -91,4 +101,3 @@ twopack(FMax,
         Target = target,
         alpha = 0.5,
         f.sub = "Process capability")
-
