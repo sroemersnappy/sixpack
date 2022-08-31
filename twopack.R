@@ -59,7 +59,9 @@ PN_data_xT_deduped$PN <- worev
 index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 
 #remove duplicates
-index_of_PN <- index_of_PN[1]
+#I chose the second index, since usually REV B is second to REV A, for example. 
+#That way it should use the most updated rev's specification
+index_of_PN <- index_of_PN[2]
 
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
