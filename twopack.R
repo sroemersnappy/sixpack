@@ -32,7 +32,7 @@ FMax <- as.matrix(FMax)
 
 #import LSL,USL, and target values from second excel file - downloaded from xT
 PN_data_xT_deduped <- read_excel("P:/Quality/Savannah/PN trip data/PN data xT deduped.xlsx")
-                        
+
 
 
 # lookup of PN will fail if the PN includes something like "REV A"
@@ -45,11 +45,11 @@ withREV <- as.matrix(withREV1)
 withoutREV <- numeric()  
 
 for (i in 1:length(withREV))
-  {
+{
   parsesubstring <- scan(text = withREV[i,1], what = "")
   newstring = parsesubstring[1]
   withoutREV <- c(withoutREV, newstring)
-   }
+}
 
 withoutREV1 <- split(withoutREV,1)
 worev <- unlist(withoutREV1)
@@ -72,16 +72,37 @@ usl <-PN_data_xT_deduped[[index_of_PN,5]]
 # https://support.minitab.com/en-us/minitab/20/help-and-how-to/quality-and-process-improvement/capability-analysis/how-to/
 #capability-analysis/normal-capability-analysis/methods-and-formulas/potential-capability/
 
-sigma<-sd(FMax)
+
 mu <- mean(FMax)
 specdiff=usl-lsl
-#top <- sum((FMax-mu)^2)
-#standard_deviation <- sqrt(top/(length(FMax)-1))
+
+N=length(FMax)
+top <- sum((FMax-mu)^2)
+n_FMax <- N-1
+sp <- sqrt(top/(n_FMax))
+
+
+#https://support.minitab.com/en-us/minitab/20/help-and-how-to/quality-and-process-improvement/control-charts/how-to/
+#variables-charts-for-subgroups/xbar-r-chart/methods-and-formulas/unbiasing-constants-d2-d3-and-d4/
+#d2N = 3.4873 + (0.0250141 * N) - (0.00009823 * (N^2))
+
+
+#https://support.minitab.com/en-us/minitab/20/help-and-how-to/quality-and-process-improvement/control-charts/how-to/
+#variables-charts-for-subgroups/i-mr-r-s-chart/methods-and-formulas/unbiasing-constant-c4/
+
+indx=N-48
+ 
+#indx    1         2         3         4        5         6         7         8
+#        49,       50,       51,       52,      53,       54,       55,       56
+C4 <- c (0.992276, 0.992427, 0.992573, 0.992713,0.992848, 0.992978, 0.993103, 0.993224) #constants from above website
+
+sigmawithin=sp/C4[indx]
+
 C_p <- (specdiff)/(6*sigma)
 C_pL <- (mu-lsl)/(3*sigma)
 C_pU <- (usl-mu)/(3*sigma)
 C_pK <- min(C_pL,C_pU)
-n_FMax <- length(FMax)-1
+
 
 
 C_pm <- specdiff/(6*sqrt((sum((FMax-target)^2))/n_FMax))
@@ -108,4 +129,3 @@ twopack(FMax,
         Target = target,
         alpha = 0.5,
         f.sub = "Process capability")
-
