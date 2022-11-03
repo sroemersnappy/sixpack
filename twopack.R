@@ -21,8 +21,8 @@ my_string_split <- scan(text = extract, what = "")  # Apply scan function
 my_string_split2 <- scan(text = my_string_split[3], what = "", sep = ".")
 
 #concatenate substring one (part number) and substring two (WO#)
-PN_WO <- paste(my_string_split[1], my_string_split[2])
-#PN_WO <- paste(PN_WO1, my_string_split2[1])
+PN_WO1 <- paste(my_string_split[1], my_string_split[2])
+PN_WO <- paste(PN_WO1, my_string_split2[1])
 
 
 #read Fmax data only from the excel file that was chosen
@@ -61,6 +61,7 @@ index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 #remove duplicates
 #I chose the second index, since usually REV B is second to REV A, for example. 
 #That way it should use the most updated rev's specification
+#if conditional - in case index_of_PN[2] is equal to NA
 
 if (!is.na(index_of_PN[2])) {
 index_of_PN <- index_of_PN[2]
@@ -103,9 +104,9 @@ C4 <- c (0.992276, 0.992427, 0.992573, 0.992713,0.992848, 0.992978, 0.993103, 0.
 
 sigmawithin=sp/C4[indx]
 
-C_p <- (specdiff)/(6*sigma)
-C_pL <- (mu-lsl)/(3*sigma)
-C_pU <- (usl-mu)/(3*sigma)
+C_p <- (specdiff)/(6*sigmawithin)
+C_pL <- (mu-lsl)/(3*sigmawithin)
+C_pU <- (usl-mu)/(3*sigmawithin)
 C_pK <- min(C_pL,C_pU)
 
 
