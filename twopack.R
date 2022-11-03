@@ -61,7 +61,10 @@ index_of_PN <- which(PN_data_xT_deduped == my_string_split[1])
 #remove duplicates
 #I chose the second index, since usually REV B is second to REV A, for example. 
 #That way it should use the most updated rev's specification
+
+if (!is.na(index_of_PN[2])) {
 index_of_PN <- index_of_PN[2]
+}
 
 #  USL, LSL and Target values from the PN_data_xT_deduped excel file
 
@@ -93,7 +96,7 @@ sp <- sqrt(top/(n_FMax))
 #variables-charts-for-subgroups/i-mr-r-s-chart/methods-and-formulas/unbiasing-constant-c4/
 
 indx=N-48
- 
+
 #indx    1         2         3         4        5         6         7         8
 #        49,       50,       51,       52,      53,       54,       55,       56
 C4 <- c (0.992276, 0.992427, 0.992573, 0.992713,0.992848, 0.992978, 0.993103, 0.993224) #constants from above website
